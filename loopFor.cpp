@@ -9,8 +9,8 @@ int main(){
     
     
     //Indice    
-    int numeros[] = {1,2,3,4,5};
-    cout << sizeof (numeros)/4 << endl; 
+    int numero[] = {1,2,3,4,5};
+    cout << sizeof (numero)/4 << endl; 
 
 
 

@@ -3,7 +3,7 @@
 #include "asminhascontas.h"
 using namespace std;
 
-int NUM_PORT_SEN_HUM = 10;                  //numeros inteiros
+int NUM_PORT_SEN_HUM = 10;                  //numero inteiros
 double O_MEU_NUMERO = 10.5;                 //números reais
 char O_MEU_CARACTER = 'a';                  //caracteres
 string O_MEU_TEXTO ="isto é um texto";      //texto  

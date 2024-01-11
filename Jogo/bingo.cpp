@@ -19,7 +19,6 @@
             int opcao, sorteio, numeroSorteado, numeroAnterior;
     cout << vector<int> >> numerosSorteados;
 
-
     cout << "Escolha o tipo de de sorteio (75, 90, ou 100):";
     cin  >> sorteio;
 

@@ -1,28 +1,83 @@
 #include <iostream>
 #include <iomanip>
-#include <cstdlib>
-#include <ctime>
-#include <unistd.h>
-    
-    using namespace std;
+#include <random>
+#include <vector>
+#include <algorithm>
+#include <limits>
+#include <chrono> // Para std::chrono
 
-    int numeroDeBolas, tipoSorteio, numeroDeLinahsPainel, numeroDeCartoes;
-    int sorteados = 0;
-    int numeroSorteado = 0;
-    
-    
-    int numLinhasCartao = 5;
-    int numColunasCartao = 5;
+using namespace std;
 
-    const int intervalo =5000000
-
-        void escreverNumeros(int c[NUMBER] [NUMBER] , int 1 {Bingo});
-int main(){
-
-    int  NUMBER [NUMBER] [NUMBER] =
-        (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30);
-        (31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60);
-        (61,6,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90);
-        (91,92,93,94,95,96,97,98,99,100);
+// Função para imprimir o texto em vermelho
+void printRedText(const string& text) {
+    cout << "\033[1;31m" << text << "\033[0m";
 }
-    int drawn [Bingo] = (0);
+
+int main() {
+    int escolha;
+    int maximo;
+    vector<int> numeros;
+
+    cout << "1: Sorteio Manual!\n";
+    cout << "2: Sorteio automático\n";
+    cout << "3: Gerar Cartões\n";
+    cout << "4: Sair\n";
+    cout << "Escolha uma opção: ";
+    cin >> escolha;
+
+    if (escolha != 1 && escolha != 2 && escolha != 3 && escolha != 4) {
+        cout << "Opção inválida. Escolha 1, 2, 3 ou 4.\n";
+        return 1;
+    }
+
+    if (escolha != 4) {
+        cout << "Escolha o número máximo (75, 90 ou 100): ";
+        cin >> maximo;
+
+        if (maximo != 75 && maximo != 90 && maximo != 100) {
+            cout << "Opção inválida. Escolha 75, 90 ou 100.\n";
+            return 1;
+        }
+
+        switch (escolha) {
+            case 1: {
+                // Sorteio Manual
+                auto seed = static_cast<unsigned>(chrono::system_clock::now().time_since_epoch().count());
+                mt19937 gerador(seed);
+                uniform_int_distribution<int> distribuicao(1, maximo);
+
+                while (numeros.size() < 14) {
+                    int numeroAleatorio = distribuicao(gerador);
+
+                    // Verifica se o número já foi incluído
+                    if (find(numeros.begin(), numeros.end(), numeroAleatorio) == numeros.end()) {
+                        printRedText(to_string(numeroAleatorio));
+                        cout << "\nPressione Enter para sortear a próxima bola.\n";
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cin.get();
+
+                        numeros.push_back(numeroAleatorio);
+                    }
+                }
+                break;
+            }
+            case 2: {
+                // Sorteio automático
+                // Adicione o código para Sorteio automático aqui
+                break;
+            }
+            case 3: {
+                // Gerar Cartões - Adicione o código para Gerar Cartões aqui
+                cout << "Funcionalidade ainda não implementada.\n";
+                break;
+            }
+            case 4:
+                cout << "Saindo do programa.\n";
+                return 0;
+        }
+    }
+
+    // Restante do código permanece igual...
+
+    return 0;
+}

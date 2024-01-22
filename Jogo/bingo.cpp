@@ -63,10 +63,27 @@ int main() {
             break;
             }
             case 2: {
-                // Sorteio automático
-                // Adicione o código para Sorteio automático aqui
-                break;
+    // Sorteio automático
+            auto seed = static_cast<unsigned>(chrono::system_clock::now().time_since_epoch().count());
+            mt19937 gerador(seed);
+            uniform_int_distribution<int> distribuicao(1, maximo);
+
+            cout << "Sorteio automático iniciado:\n";
+
+            while (numeros.size() < maximo) {
+                int numeroAleatorio = distribuicao(gerador);
+
+                // Verifica se o número já foi incluído
+                if (find(numeros.begin(), numeros.end(), numeroAleatorio) == numeros.end()) {
+                    numeros.push_back(numeroAleatorio);
+                    printRedText(to_string(numeroAleatorio) + " ");
+                }
             }
+
+            cout << "\nTodos os números foram sorteados!\n";
+            break;
+}
+
             case 3: {
                 // Gerar Cartões - Adicione o código para Gerar Cartões aqui
                 cout << "Funcionalidade ainda não implementada.\n";

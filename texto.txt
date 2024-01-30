@@ -1,3 +1,47 @@
-Olá turma bem vindo ao pesadelo 
-que é a informática
-Teste
+#include <iostream>
+
+using namespace std;
+
+/**
+ * Exercicio #1 (15 minutos para completar)
+ * 
+ * Crie uma função capaz de ler os dados na matriz 
+ * quadrada de inteiros. Ao final  que contém o menor 
+ * dentre todos os numeros lidos
+ * 
+*/
+
+int main(){
+int arr[3][3] = {{1,4,3},
+                 {2,5,7},
+                 {8,5,7}};
+
+};
+
+void showArr (int n){
+    
+
+for (int l=0; l<=n-1; l++){
+     for (int c=0; c<=n-1; c++){
+
+    }
+    
+}
+}
+void readMatrix(int array[][3], int size){
+    int line = 0;
+    int lower = 0;
+    for(int i= 0; i < size; i++){
+        for(int j = 0; i < size; j++){
+            if (array [i][j] < lower){
+                lower = array[i][j];
+            }
+            
+            
+        }
+    }
+
+        cout << "The lower number is:" << lower << endl;
+        cout << "The line is:" << line << endl;
+
+}
